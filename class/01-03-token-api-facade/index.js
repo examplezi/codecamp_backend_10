@@ -30,7 +30,7 @@ function createTokenOfPhone(myphone) {
   // 2. 핸드폰 토큰 6자리 만들기
   const myToken = getToken();
   // 3. 핸드폰번호에 토큰 전송하기
-function sendTokenToSMS(myphone, myToken);
+  sendTokenToSMS(myphone, myToken);
 }
 // myphone 는 핸드폰번호
 //myToken 은 6자리 숫자
