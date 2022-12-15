@@ -1,0 +1,25 @@
+# 설정파일
+
+version: "3.7"
+#컴퓨터들
+services:
+  #컴퓨터이름
+  my-backend:
+    build:
+      context: . #현위치
+      dockerfile: Dockerfile
+
+    volumes:
+      - ./index.js:/myfolder/index.js #빌드없이 동시 수정
+      - ./email.js:/myfolder/email.js
+    ports:
+      - 4000:4000
+
+  #컴퓨터이름:
+  my-database:
+    image: mongo:5
+    # 도커파일 몽고 필요없음
+    ports:
+      - 27017:27017
+
+    #docker-compose build -> docker-compose up

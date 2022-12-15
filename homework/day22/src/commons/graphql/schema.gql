@@ -1,0 +1,106 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Board {
+  number: Int!
+  writer: String!
+  title: String!
+  contents: String!
+}
+
+type Seller {
+  id: String!
+  name: String!
+  phone: String!
+  address: String!
+}
+
+type Origin {
+  id: String!
+  name: String!
+}
+
+type User {
+  id: String!
+  name: String!
+  email: String!
+  password: String!
+  age: Int!
+}
+
+type Order {
+  id: String!
+  payment: String!
+  user: User!
+}
+
+type ProductCategory {
+  id: String!
+  name: String!
+}
+
+type ProductSub {
+  id: String!
+  name: String!
+  productcategory: ProductCategory!
+}
+
+type Color {
+  id: String!
+  name: String!
+  products: Product!
+}
+
+type Product {
+  id: String!
+  name: String!
+  price: Int!
+  material: String!
+  delivery_fee: Int!
+  origin: Origin!
+  seller: Seller!
+  productsub: ProductSub!
+  order: Order!
+  colors: [Color!]!
+}
+
+type Query {
+  fetchBoards: [Board!]
+  fetchProducts: [Product!]!
+  fetchProduct(productId: String!): Product!
+  fetchUser: String!
+  fetchLoginUser: User!
+}
+
+type Mutation {
+  login(email: String!, password: String!): String!
+  createBoard(createBoardInput: CreateBoardInput!): String!
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(productId: String!, updateProductInput: UpdateProductInput!): Product!
+  deleteProduct(productId: ID!): Boolean!
+  restoreProduct(productId: ID!): Boolean!
+  createUser(email: String!, password: String!, name: String!, age: Int!): User!
+  updateUser(password: String!): Boolean!
+  deleteUser: Boolean!
+}
+
+input CreateBoardInput {
+  writer: String!
+  title: String!
+  contents: String!
+}
+
+input CreateProductInput {
+  name: String!
+  price: Int!
+  material: String!
+  delivery_fee: Int!
+}
+
+input UpdateProductInput {
+  name: String
+  price: Int
+  material: String
+  delivery_fee: Int
+}

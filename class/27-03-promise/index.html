@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Promise 연습 !!</title>
+    <script>
+      const onClickThen = () => {
+        new Promise((resolve, reject) => {
+          //시간이 걸리는 작업(i.e API 보내기 )
+
+          setTimeout(() => {
+            try {
+              const dog = "강아지"; // 2초가 걸려서 "강아지" 데이터 받아옴
+              resolve(dog); // 성공하면 실행
+            } catch (error) {
+              reject("에러가 발생했어요!"); //실패하면 이거 실행
+            }
+          }, 2000);
+        })
+          .then((res) => {
+            console.log(res); // 강아지
+          })
+          .catch((error) => {
+            console.log(error); // 에러가 발생했어요
+          });
+      };
+
+      const onClickAwait = () => {
+       const result = await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            try {
+              const dog = "강아지"; // 2초가 걸려서 "강아지" 데이터 받아옴
+              resolve(dog); // 성공하면 실행
+            } catch (error) {
+              reject("에러가 발생했어요!"); //실패하면 이거 실행
+            }
+          }, 2000);
+        });
+        console.log(result);
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="">Promise 실행하기(.then)</button>
+    <button onclick="">Promise 실행하기(await)</button>
+  </body>
+</html>

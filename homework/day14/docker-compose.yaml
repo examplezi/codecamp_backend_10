@@ -1,0 +1,27 @@
+# 설정파일
+
+version: "3.7"
+#컴퓨터들
+services:
+  #컴퓨터이름
+  my-backend:
+    build:
+      context: . #현위치
+      dockerfile: Dockerfile
+
+    volumes:
+      - ./src:/myfolder/src #빌드없이 동시 수정
+
+    ports:
+      - 3000:3000
+    env_file: -./.env.docker
+
+  #컴퓨터이름:
+  my-database:
+    image: mysql:latest
+    # 도커파일 몽고 필요없음
+    environment:
+      MYSQL_DATABASE: "myfolder"
+      MYSQL_ROOT_PASSWORD: "root"
+    ports:
+      - 3306:3306

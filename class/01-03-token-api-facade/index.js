@@ -1,4 +1,4 @@
-function checkPhone(myphone) {
+export function checkPhone(myphone) {
   //함수이름 정할 때 검증은 check, 함수 이름만 보고 기능알 수 있게 정하기
   if (myphone.length < 10 || myphone.length > 11) {
     console.log("에러 발생. 핸드폰 번호를 제대로 입력해 주세요."); //early exit pattern , 먼저 종료시켜 버리기 즉 소거법으로 먼저 진행 , 이 방법으로 가급적 진행하기
@@ -8,13 +8,13 @@ function checkPhone(myphone) {
   }
 }
 
-function getToken() {
+export function getToken() {
   const result = String(Math.floor(Math.random() * 1000000)).padStart(6, "0");
   console.log(result);
   return result;
 }
 
-function sendTokenToSMS(myphone, result) {
+export function sendTokenToSMS(myphone, result) {
   console.log(myphone + "번호로 인증번호" + result + "를 전송합니다.");
 }
 

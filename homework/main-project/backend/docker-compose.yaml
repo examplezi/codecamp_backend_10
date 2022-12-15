@@ -1,0 +1,30 @@
+version: "3.7"
+## 하기 컴퓨터들 모두 도커지만 하나는 mysql 연결된 , 다른 하나는 nestjs에 연결된 도커
+# 컴퓨터들
+services:
+  # 컴퓨터이름
+  my-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/myfolder/src
+    ports:
+      - 3000:3000
+    env_file:
+      - ./.env.docker
+
+  # 컴퓨터이름
+  my-database:
+    #DB호스트의 경우 docker-compose에서 지정한 데이터베이스의 이름으로 맞추면 실행
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: "mydocker10"
+      MYSQL_ROOT_PASSWORD: "root"
+    ports:
+      - 3306:3306
+
+  my-redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
