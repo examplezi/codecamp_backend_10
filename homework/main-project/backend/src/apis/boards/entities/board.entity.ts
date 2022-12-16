@@ -1,10 +1,10 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Field, Int, ObjectType } from "@nestjs/graphql";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 @ObjectType()
 export class Board {
-  @PrimaryGeneratedColumn('increment')
+  @PrimaryGeneratedColumn("increment")
   @Field(() => Int)
   number: number;
 
@@ -20,3 +20,4 @@ export class Board {
   @Field(() => String)
   contents: string;
 }
+// 에ㄴ디티티ㅣ ㅏ섲젓ㅈ
