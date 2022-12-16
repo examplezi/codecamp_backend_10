@@ -41,5 +41,5 @@ export class Payment {
 
   @CreateDateColumn()
   @Field(() => Date)
-  cratedAt: Date;
+  createdAt: Date;
 }

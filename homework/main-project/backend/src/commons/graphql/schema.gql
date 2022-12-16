@@ -24,7 +24,7 @@ type Payment {
   amount: Int!
   impUid: String!
   user: User!
-  cratedAt: DateTime!
+  createdAt: DateTime!
 }
 
 enum POINT_TRANSACTION_STATUS_ENUM {

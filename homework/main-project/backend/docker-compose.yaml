@@ -17,6 +17,7 @@ services:
   # 컴퓨터이름
   my-database:
     #DB호스트의 경우 docker-compose에서 지정한 데이터베이스의 이름으로 맞추면 실행
+    #platform: linux/x86_64
     image: mysql:latest
     environment:
       MYSQL_DATABASE: "mydocker10"
